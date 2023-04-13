@@ -23,9 +23,14 @@ var version = "v1.0.0-rc.1"
 // empty context
 var nocontext = context.Background()
 
+func printinfo(app *kingpin.Application) {
+	fmt.Printf("app is: ", app)
+}
+
 // Command parses the command line arguments and then executes a subcommand program.
 func Command() {
 	app := kingpin.New("drone", "drone aws runner")
+	printinfo(app)
 	registerCompile(app)
 	registerExec(app)
 	daemon.Register(app)
